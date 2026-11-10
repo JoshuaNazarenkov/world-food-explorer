@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover dishes and flavors from around the world.">
+  <title>World Food Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="World Food Explorer home"><span class="brand-icon">✦</span> WORLD FOOD EXPLORER</a>
+    <nav aria-label="Main navigation">
+      <a href="#explore">Explore</a>
+      <a href="#favorites">My favorites <span id="nav-favorite-count">0</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">A world of flavor awaits</p>
+        <h1>Find your next<br><em>favorite dish.</em></h1>
+        <p class="hero-copy">Travel the world one plate at a time. Explore iconic dishes, discover new cuisines, and find something delicious.</p>
+        <a class="primary-button" href="#explore">Explore dishes <span>→</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="globe">🌎</div>
+        <span class="float-food food-one">🍜</span><span class="float-food food-two">🥑</span>
+        <span class="float-food food-three">🥟</span><span class="float-food food-four">🍕</span>
+        <span class="hero-note">Taste the<br>world!</span>
+      </div>
+    </section>
+
+    <section class="explore-section" id="explore">
+      <div class="section-heading">
+        <div><p class="eyebrow">Discover something delicious</p><h2>Explore the menu</h2></div>
+        <button class="random-button" id="random-button">✦ Surprise me</button>
+      </div>
+
+      <div class="filters" role="group" aria-label="Dish filters">
+        <label class="search-wrap"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Search dishes or countries..." aria-label="Search dishes or countries"></label>
+        <label><span class="sr-only">Region</span><select id="region-filter"><option value="All">All regions</option><option>Asia</option><option>Europe</option><option>North America</option><option>South America</option><option>Africa</option></select></label>
+        <label><span class="sr-only">Diet</span><select id="diet-filter"><option value="All">All diets</option><option>Vegetarian</option><option>Vegan</option><option>Gluten-free</option></select></label>
+        <label><span class="sr-only">Sort dishes</span><select id="sort-filter"><option value="featured">Featured order</option><option value="name-asc">Name: A to Z</option><option value="name-desc">Name: Z to A</option></select></label>
+        <button class="clear-filters" id="clear-filters" type="button">Clear filters</button>
+      </div>
+
+      <p class="results-line" id="results-line" aria-live="polite" aria-atomic="true"></p>
+      <div class="food-grid" id="food-grid"></div>
+      <p class="empty-state" id="empty-state" hidden>No dishes found. Try changing your search or filters.</p>
+    </section>
+
+    <section class="favorites-section" id="favorites">
+      <div class="section-heading">
+        <div><p class="eyebrow">Your personal collection</p><h2>Saved favorites <span class="heading-count" id="favorite-count">0</span></h2></div>
+      </div>
+      <div class="favorites-content" id="favorites-content">
+        <p class="favorites-empty">♡ Your favorites will appear here. Save a dish you want to try!</p>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>WORLD FOOD EXPLORER</span><span>Made for curious food lovers · 🌍</span></footer>
+
+  <dialog id="dish-dialog" class="dish-dialog" aria-labelledby="dialog-title">
+    <button class="close-dialog" id="close-dialog" aria-label="Close details">×</button>
+    <div id="dialog-content"></div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
